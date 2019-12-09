@@ -1,0 +1,9 @@
+.color-white {
+  color: white;
+}
+
+.hover_color-white {
+  &:hover {
+    color: white;
+  }
+}

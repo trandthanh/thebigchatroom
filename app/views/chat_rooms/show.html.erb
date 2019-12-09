@@ -1,0 +1,20 @@
+<div class="d-flex">
+  <div class="navbar-chat background-color-light)gray height-100vh">
+    <h4>Users</h4>
+  </div>
+
+  <div class="chat">
+    <div class="chat-header background-color-grape d-flex align-items-center"><h4>#<%= @chat_room.name %></h4></div>
+    <div class="messages" style="min-height: 78vh;">
+      <% @chat_room.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
+    <div id="create-message">
+      <%= simple_form_for [@chat_room, @message], remote: true do |f| %>
+        <%= f.input :content, label: false %>
+        <%= f.submit class: "background-color-grape border-radius-30px color-white hover_color-white hover_opacity-0dot8 padding-y-10px-x-30px text-decoration-none" %>
+      <% end %>
+    </div>
+  </div>
+</div>
