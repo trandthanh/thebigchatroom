@@ -1,13 +1,13 @@
 <div class="d-flex">
-  <div class="navbar-chat background-color-light)gray height-100vh">
+  <div class="navbar-chat background-color-light-gray height-100vh">
     <h4>Users</h4>
   </div>
 
-  <div class="chat">
+  <div class="chat" data-room="<%= @chat_room.id %>" data-user="<%= current_user.id %>">
     <div class="chat-header background-color-grape d-flex align-items-center"><h4>#<%= @chat_room.name %></h4></div>
-    <div class="messages" style="min-height: 78vh;">
+    <div class="messages" style="height: 78vh;">
       <% @chat_room.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+        <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
       <% end %>
     </div>
     <div id="create-message">
