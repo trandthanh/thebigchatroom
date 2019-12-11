@@ -22,6 +22,10 @@ const chatSubscription = () => {
         }
       }
     })
+
+  // if (App[`chat_room_${chatroomId}`]) {
+  //   console.log('hi');
+  // };
 }
 
 export { chatSubscription };

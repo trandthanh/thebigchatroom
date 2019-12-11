@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
+
+  # def appearance_broadcast
+  #   if user_signed_in?
+  #     ActionCable.server.broadcast("appearance_channel", {
+  #       user_id: current_user.id
+  #     })
+  #   end
+  # end
 end

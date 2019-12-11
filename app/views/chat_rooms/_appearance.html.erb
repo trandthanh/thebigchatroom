@@ -1,0 +1,11 @@
+<span class="connected">
+  <% if user.online %>
+    <div class="d-flex align-items-center">
+      <div class="available"></div> <%= user.username %>
+    </div>
+  <% else %>
+    <div class="d-flex align-items-center">
+      <div class="unavailable"></div> <%= user.username %>
+    </div>
+  <% end %>
+</span>

@@ -1,6 +1,11 @@
 <div class="d-flex">
   <div class="navbar-chat background-color-light-gray height-100vh">
-    <h4>Users</h4>
+    <h4>I am <%= current_user.username %></h4>
+    <% @users.each do |user| %>
+      <div class="availability-appearance user-availability-<%= user.id %>" data-user-connected="<%= user.id %>">
+        <%= render "chat_rooms/appearance", user: user %>
+      </div>
+    <% end %>
   </div>
 
   <div class="chat" data-room="<%= @chat_room.id %>" data-user="<%= current_user.id %>">

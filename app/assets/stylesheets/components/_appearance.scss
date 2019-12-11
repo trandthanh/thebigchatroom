@@ -1,0 +1,15 @@
+.available {
+  background-color: $ocean-green;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.unavailable {
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid black;
+}

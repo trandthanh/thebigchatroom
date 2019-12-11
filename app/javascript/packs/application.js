@@ -1,8 +1,13 @@
 import "bootstrap";
 
+import { appearanceSubscription } from '../channels/appearance';
 import { chatSubscription } from '../channels/chat';
 import { scroll } from '../components/scroll';
 
-chatSubscription();
+appearanceSubscription();
+
+if (document.querySelector(".chat")) {
+  chatSubscription();
+}
 
 global.scroll = scroll;
