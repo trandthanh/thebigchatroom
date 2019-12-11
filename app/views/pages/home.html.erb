@@ -1,8 +1,13 @@
+<%= current_user.id if user_signed_in? %>
+<span class="notif-user" data-user="<%= current_user.id if user_signed_in? %>"></span>
 <div class="align-items-center d-flex flex-column height-100vh justify-content-center width-100vw">
   <% if user_signed_in? %>
     <% @chat_rooms.each do |chat_room| %>
-      <div class="m-3">
+      <div class="align-items-center d-flex justify-content-center m-3">
         <%= link_to "Start to chat in #{chat_room.name}", chat_room_path(chat_room), class: "background-color-grape border-radius-30px color-white hover_color-white hover_opacity-0dot8 padding-y-10px-x-30px text-decoration-none" %>
+        <div class="notifications notification-<%= chat_room.id %>" data-room="<%= chat_room.id %>">
+          <%= render "pages/notification", user: current_user, chat_room: chat_room %>
+        </div>
       </div>
     <% end %>
   <% else %>

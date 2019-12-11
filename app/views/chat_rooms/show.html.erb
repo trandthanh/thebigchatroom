@@ -1,3 +1,5 @@
+<span class="notif-user" data-user="<%= current_user.id if user_signed_in? %>"></span>
+
 <div class="d-flex">
   <div class="navbar-chat background-color-light-gray height-100vh">
     <h4>I am <%= current_user.username %></h4>
@@ -11,7 +13,7 @@
   <div class="chat" data-room="<%= @chat_room.id %>" data-user="<%= current_user.id %>">
     <div class="chat-header background-color-grape d-flex align-items-center"><h4>#<%= @chat_room.name %></h4></div>
     <div class="messages" style="height: 78vh;">
-      <% @chat_room.messages.each do |message| %>
+      <% @chat_room.messages.order(:created_at).each do |message| %>
         <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
       <% end %>
     </div>

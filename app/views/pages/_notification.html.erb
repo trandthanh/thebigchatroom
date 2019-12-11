@@ -1,0 +1,3 @@
+<div>
+  <%= user.notifications.find_by(chat_room: chat_room).nil? ? 0 : user.notifications.find_by(chat_room: chat_room).unseen %>
+</div>

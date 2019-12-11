@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @chat_room = ChatRoom.find(params[:chat_room_id])
     @message.chat_room = @chat_room
     @message.user = current_user
+
     if @message.save
       # ActionCable.server.broadcast("chat_room_#{@chat_room.id}", {
       #   message_partial: render(partial: "messages/message", locals: { message: @message, user_is_messages_author: false })
@@ -14,6 +15,7 @@ class MessagesController < ApplicationController
         format.js
       end
     else
+      raise
       respond_to do |format|
         format.html { render "chat_rooms/show"}
         format.js
